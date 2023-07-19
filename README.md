@@ -3,9 +3,15 @@ ICCV 2023 Accepted Paper - Quantization, Efficient Inference, Lifelong Learning
 
 <img src="img/overview.png" width="350" height="300">
 
-* **Motivation**: to diminish the quantization error from the heterogeneity of class distributions (variations & sample numbers)
+* **Motivations**:
 
-* **Method**: class distribution scaling + rebalance loss for homogeneity of class variances
+- 1. to overcome quantization models forgetting the learned space on old task data 
+- 2. to employ as few as replay data (old task data) for memory efficiency, but to avoid the forgetting the old tasks
+
+* **Methods**:
+
+- 1. **ProxQ**: to regularize the quantization space when learning new task data
+- 2. **BaLL**: to strengthen the weighting of the few replay data (i.e., rebalancing)
 
 ## Requirements
 
