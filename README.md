@@ -1,7 +1,7 @@
 # Overcoming Forgetting Catastrophe in Quantization-Aware Training (LifeQuant)
 ICCV 2023 Accepted Paper - Quantization, Efficient Inference, Lifelong Learning 
 
-<img src="img/overview.png" width="400" height="500">
+<img src="img/overview.png" width="400" height="300">
 
 * **Motivation**: to diminish the quantization error from the heterogeneity of class distributions (variations & sample numbers)
 
