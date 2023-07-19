@@ -6,7 +6,7 @@ ICCV 2023 Accepted Paper - Quantization, Efficient Inference, Lifelong Learning
 * **Motivations**:
 
 - 1. to overcome quantization models forgetting the learned space on old task data 
-- 2. to employ as few as replay data (old task data) for memory efficiency, but to avoid the forgetting the old tasks
+- 2. to employ as few as replay data (old task data) for memory efficiency, but to avoid forgetting the old tasks
 
 * **Methods**:
 
