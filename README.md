@@ -23,32 +23,34 @@ ICCV 2023 Accepted Paper - Quantization, Efficient Inference, Lifelong Learning
 
 ## Implementation
 
-* e.g. 4-bit ResNet-20 on CIFAR-10-LT (gamma = 10).
+* e.g. 4-bit ResNet-20 on CIFAR-100-LL (gamma = 25).
 
 ### Data Preparation
 
-* e.g. CIFAR-10.
+* e.g. CIFAR-100.
 
 ```shell
 cd src/
-```
-```shell
 mkdir data_dir/
 ```
 
-Save training (testing) image data to the path src/data_dir/cifar10/. (e.g. src/data_dir/cifar10/train/airplane/0001.jpg)
+Save training (testing) image data to the path src/data_dir/cifar100/. (e.g. src/data_dir/cifar100/train/apple/0001.png)
 
-### Data Generation - Imbalance (Long-tail) Data
+### Data Generation - Lifelong Data
 
-* e.g. CIFAR-10-LT (gamma = 10).
+* e.g. CIFAR-10-LL (3 tasks with 25% classes forgot whenerver task switches).
 
-##### 1. Generate imbalance data
+##### 1. Generate lifelong data
 
 ```shell
-python3 longTailDataGeneator.py --data_dir "src/data_dir/cifar10/" --output_csv "cifar10.csv" --gamma 10
+cd lifelong_data_generation/
+python3 lifeLongDataGeneator.py --data_dir "src/data_dir/cifar100/" --output_csv "cifar100.csv" --num_tasks 3 --diminish_rate 25 --source train
 ```
 
-Files 'cifar10_train10.csv' and 'cifar10_test.csv' are shown under src/.
+Files 'cifar100_train.csv', 'cifar100_train0.csv', 'cifar100_train1.csv', 'cifar100_train2.csv' is shown under src/cifar100_025.
+
+* 'cifar100_train.csv': all training data
+* 'cifar100_train$i$.csv': the i-th task of training data
 
 ##### 2. Move csv files
 
