@@ -82,7 +82,7 @@ python3 count_classes.py
 ### Training & Testing
 
 * e.g. 4-bit ResNet-20 on CIFAR-100-LL.
-* 
+
 ##### 1. Copy the generated data for training
 
 ```shell
@@ -93,19 +93,21 @@ Generated csv files are copied under data/.
 
 ##### 2. Pretraining
 
-32-bit
+* 32-bit
 
 ```shell
 python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method lifeq --lr 0.001 --num_tasks 1 --job_dir pretrained/resnet/t_32_025_0  --pretrained False --bitW 32 --abitW 32
 ```
 
-8-bit
+* 8-bit
 
 ```shell
 python3 main.py --gpus 3 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --lr 0.001 --num_tasks 1 --job_dir experiment/life_q/ours_/resnet/t_8_32_025_0 --source_dir pretrained/ --source_file resnet/t_32_025_0/checkpoint/model_best.pt --bitW 8 --abitW 8
 ```
 
 ##### 2. Quantize & Test
+
+* 4-bit
 
 ```shell
 python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --num_tasks 3 --job_dir experiment/life_q/ours_/resnet/t_4_8_025_3 --source_dir experiment/ --source_file life_q/ours/resnet/t_8_32_025_0/checkpoint/model_best.pt --bitW 4 --abitW 4
