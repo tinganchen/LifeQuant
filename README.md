@@ -91,23 +91,29 @@ cp -r ../../lifelong_data_generation/data_dir/cifar100_025/ data/
 ```
 Generated csv files are copied under data/.
 
+##### 2. Pretraining
+
+32-bit
+
+```shell
+python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method lifeq --lr 0.001 --num_tasks 1 --job_dir pretrained/resnet/t_32_025_0  --pretrained False --bitW 32 --abitW 32
+```
+
+8-bit
+
+```shell
+python3 main.py --gpus 3 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --lr 0.001 --num_tasks 1 --job_dir experiment/life_q/ours_/resnet/t_8_32_025_0 --source_dir pretrained/ --source_file resnet/t_32_025_0/checkpoint/model_best.pt --bitW 8 --abitW 8
+```
+
 ##### 2. Quantize & Test
 
 ```shell
-python3 main.py --csv_dir data/ --job_dir "experiment/ours/resnet/t_4bit_pre32bit" --method "ours" --source_dir "pretrained" --source_file "res20_32bit/model_best.pt" --arch resnet --bitW 4 --abitW 4 --target_model "resnet20_quant" --source_model "resnet20" --lt_gamma 10 --num_epochs 50 --train_batch_size 128 --eval_batch_size 100 --lr 0.04
+python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --num_tasks 3 --job_dir experiment/life_q/ours_/resnet/t_4_8_025_3 --source_dir experiment/ --source_file life_q/ours/resnet/t_8_32_025_0/checkpoint/model_best.pt --bitW 4 --abitW 4
 ```
 
 
 ## Citation
 
 ```shell
-@inproceedings{
-  chen2022climbq,
-  title={ClimbQ: Class Imbalanced Quantization Enabling Robustness on Efficient Inferences},
-  author={Ting-An Chen and Ming-Syan Chen},
-  booktitle={Advances in Neural Information Processing Systems},
-  editor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},
-  year={2022},
-  url={https://openreview.net/forum?id=F7NQzsl334D}
-}
+(TBD)
 ```
