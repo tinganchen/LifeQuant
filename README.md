@@ -102,7 +102,7 @@ python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method lifeq --lr 0.001 
 * 8-bit
 
 ```shell
-python3 main.py --gpus 3 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --lr 0.001 --num_tasks 1 --job_dir experiment/life_q/ours_/resnet/t_8_32_025_0 --source_dir pretrained/ --source_file resnet/t_32_025_0/checkpoint/model_best.pt --bitW 8 --abitW 8
+python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method life_q --ll_method ours  --balanced True --lr 0.001 --num_tasks 1 --job_dir experiment/life_q/ours_/resnet/t_8_32_025_0 --source_dir pretrained/ --source_file resnet/t_32_025_0/checkpoint/model_best.pt --bitW 8 --abitW 8
 ```
 
 ##### 2. Quantize & Test
