@@ -117,5 +117,12 @@ python3 main.py --gpus 0 --csv_dir data/cifar100_025/ --method life_q --ll_metho
 ## Citation
 
 ```shell
-(TBD)
+@InProceedings{Chen_2023_ICCV,
+    author    = {Chen, Ting-An and Yang, De-Nian and Chen, Ming-Syan},
+    title     = {Overcoming Forgetting Catastrophe in Quantization-Aware Training},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {17358-17367}
+}
 ```
